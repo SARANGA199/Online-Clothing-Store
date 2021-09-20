@@ -6,13 +6,11 @@ import android.os.Bundle;
 
 import com.example.onlineclothingstore.R;
 
-public class Item extends AppCompatActivity {
+public class Home extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item);
-
-        //NEW
+        setContentView(R.layout.activity_home);
     }
 }
