@@ -52,10 +52,12 @@ public class AddCategory extends AppCompatActivity {
     }
 
     private String category=" ";
+    private String description = " ";
 
 
     private void validateData() {
         category = binding.categoryET.getText().toString().trim();
+        description = binding.categoryET1.getText().toString().trim();
         //validate
 
         if(TextUtils.isEmpty(category)){
@@ -78,6 +80,7 @@ public class AddCategory extends AppCompatActivity {
         HashMap<String,Object> hashMap = new HashMap<>();
         hashMap.put("id",""+timestamp);
         hashMap.put("category",""+category);
+         hashMap.put("Description",""+description);
         hashMap.put("timestamp",""+timestamp);
 
         //upload

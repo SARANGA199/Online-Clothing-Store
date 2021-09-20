@@ -6,39 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".item_and_category_management.AddCategory">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cat1"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:hintEnabled="false"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginTop="225dp">
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-     <EditText
-         android:id="@+id/categoryET"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:hint="category title"
-         android:inputType="textPersonName|textCapWords"
-         android:padding="10dp"
-         android:textColor="@color/black"
-         android:background="@color/white"
-         />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cat1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/white"
+            android:hint="Category Name">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/categoryET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:textStyle="bold" />
 
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/add1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="20dp"
-        android:text="submit"
-        android:layout_below="@id/cat1"
-        />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/white"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="Description">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/categoryET1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/add1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/black"
+            android:text="submit"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>
