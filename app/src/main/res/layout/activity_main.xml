@@ -42,7 +42,7 @@
             android:textSize="18dp" />
 
         <EditText
-            android:id="@+id/edit_text_1"
+            android:id="@+id/lgemail"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_marginTop="25dp"
@@ -53,14 +53,14 @@
             android:paddingLeft="20dp" />
 
         <EditText
-            android:id="@+id/edit_text_2"
+            android:id="@+id/lgpassword"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/bg_edit_text_blue_bdr"
             android:drawableLeft="@drawable/olock"
             android:hint="@string/passwordlbl"
-            android:inputType="numberPassword"
+            android:inputType="textPassword"
             android:paddingLeft="20dp" />
 
         <TextView

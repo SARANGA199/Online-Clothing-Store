@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineClothingStore">
-        <activity android:name=".user_and_payment_management.Register"></activity>
+        <activity android:name=".user_and_payment_management.Profile"></activity>
+        <activity android:name=".user_and_payment_management.Register" />
         <activity android:name=".request_and_review_management.Request" />
         <activity android:name=".item_and_category_management.Item" />
         <activity android:name=".cart_and_order_management.Cart" />
