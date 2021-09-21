@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.onlineclothingstore.user_and_payment_management.Forgotpassword;
 import com.example.onlineclothingstore.user_and_payment_management.Profile;
 import com.example.onlineclothingstore.user_and_payment_management.Register;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView register;
+    private TextView register, forgotPassword;
     private EditText editTextEmail, editTextPassword;
     private Button signIn;
 
@@ -42,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTextPassword = (EditText) findViewById(R.id.lgpassword);
 
         mAuth = FirebaseAuth.getInstance();
+
+        forgotPassword = (TextView) findViewById(R.id.forget_pw);
+        forgotPassword.setOnClickListener(this);
     }
 
     @Override
@@ -52,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.loginbtn:
                 userLogin();
+                break;
+            case R.id.forget_pw:
+                startActivity(new Intent( this,Forgotpassword.class));
                 break;
         }
     }
