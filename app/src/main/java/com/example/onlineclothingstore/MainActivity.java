@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.onlineclothingstore.user_and_payment_management.Forgotpassword;
 import com.example.onlineclothingstore.user_and_payment_management.Profile;
 import com.example.onlineclothingstore.user_and_payment_management.Register;
+import com.example.onlineclothingstore.user_and_payment_management.UserProfile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if(task.isSuccessful()){
                     //redirect to profile
-                    startActivity(new Intent(MainActivity.this, Profile.class));
+                    startActivity(new Intent(MainActivity.this, UserProfile.class));
                 }
                 else{
                     Toast.makeText(MainActivity.this, "Failed to login!.Please check your credentials",Toast.LENGTH_LONG).show();
