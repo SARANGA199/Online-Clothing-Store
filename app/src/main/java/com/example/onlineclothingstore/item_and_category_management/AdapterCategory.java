@@ -51,6 +51,7 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Holder
 
         //set data
         holder.categoryTV.setText(category);
+        holder.categoryTV2.setText(Description);
 
         //handle click,delete category
         holder.deletebtn.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +117,7 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Holder
 
         //ui views of row_category.xml
         TextView categoryTV;
+        TextView categoryTV2;
         ImageButton deletebtn;
 
 
@@ -124,6 +126,7 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Holder
 
             //init ui views
             categoryTV = binding.categoryTV;
+            categoryTV2= binding.categoryTV2;
             deletebtn = binding.deletebtn;
         }
     }
