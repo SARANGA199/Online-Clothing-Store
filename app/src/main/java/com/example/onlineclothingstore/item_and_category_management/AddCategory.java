@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -35,6 +36,13 @@ public class AddCategory extends AppCompatActivity {
         binding = ActivityAddCategoryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.CAT2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddCategory.this,Home.class));
+            }
+        });
+
         //init firebase
 
         //configure progress dialog
@@ -50,6 +58,8 @@ public class AddCategory extends AppCompatActivity {
             }
         });
     }
+
+
 
     private String category=" ";
     private String description = " ";

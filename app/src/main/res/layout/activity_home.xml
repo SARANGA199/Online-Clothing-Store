@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".item_and_category_management.Home">
 
-
      <!--    categories-->
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categories1"
