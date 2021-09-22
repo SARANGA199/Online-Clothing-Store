@@ -12,10 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.onlineclothingstore.user_and_payment_management.Addedcards;
 import com.example.onlineclothingstore.user_and_payment_management.Forgotpassword;
-import com.example.onlineclothingstore.user_and_payment_management.Profile;
 import com.example.onlineclothingstore.user_and_payment_management.Register;
 import com.example.onlineclothingstore.user_and_payment_management.UserProfile;
+import com.example.onlineclothingstore.user_and_payment_management.cardform;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.register:
-                startActivity(new Intent(this, Register.class));
+                startActivity(new Intent(this, Addedcards.class));
                 break;
             case R.id.loginbtn:
                 userLogin();

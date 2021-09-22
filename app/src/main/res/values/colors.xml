@@ -10,4 +10,7 @@
     <color name="orange">#FFA31A</color>
     <color name="light_orange">#FFCA7A</color>
     <color name="blue">#0008fc</color>
+    <color name="colorPrimary">#607D8B</color>
+    <color name="colorPrimaryDark">#455A64</color>
+    <color name="colorAccent">#4CAF50</color>
 </resources>
