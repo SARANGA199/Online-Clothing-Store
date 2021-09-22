@@ -39,7 +39,7 @@ public class AddCategory extends AppCompatActivity {
         binding.CAT2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddCategory.this,Home.class));
+                startActivity(new Intent(AddCategory.this,DisplayCategory.class));
             }
         });
 
