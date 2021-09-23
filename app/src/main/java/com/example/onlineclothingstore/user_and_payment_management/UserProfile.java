@@ -12,7 +12,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.onlineclothingstore.MainActivity;
 import com.example.onlineclothingstore.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -87,25 +90,35 @@ public class UserProfile extends AppCompatActivity {
         View DeleteProf = findViewById(R.id.delete_prof);
         DeleteProf.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                androidx.appcompat.app.AlertDialog.Builder alert = new AlertDialog.Builder(UserProfile.this);
-                alert.setTitle("Android Studio");
-                alert.setMessage("Do you want to delete ?");
-                alert.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+            public void onClick(View view) {
+                androidx.appcompat.app.AlertDialog.Builder dialog = new AlertDialog.Builder(UserProfile.this);
+                dialog.setTitle("Android Studio");
+                dialog.setMessage("Do you want to delete ?");
+                dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        reference.child(user.getUid()).removeValue();
+                        user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull @NotNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    Toast.makeText(UserProfile.this, "Account deleted", Toast.LENGTH_SHORT).show();
+                                    FirebaseAuth.getInstance().signOut();
+                                    startActivity(new Intent(UserProfile.this, MainActivity.class));
+                                }else {
+                                    Toast.makeText(UserProfile.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
                     }
                 });
-
-                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(UserProfile.this, "hey", Toast.LENGTH_SHORT).show();
+                        dialogInterface.dismiss();
                     }
                 });
-
-                alert.show();
+                AlertDialog alertDialog = dialog.create();
+                alertDialog.show();
             }
         });
     }
