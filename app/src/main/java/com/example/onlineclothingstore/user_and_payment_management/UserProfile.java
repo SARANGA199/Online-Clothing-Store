@@ -1,8 +1,10 @@
 package com.example.onlineclothingstore.user_and_payment_management;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -80,6 +82,31 @@ public class UserProfile extends AppCompatActivity {
             i.putExtra("phone",phoneTextView.getText().toString());
             i.putExtra("address",addressTextView.getText().toString());
             startActivity(i);
+        });
+
+        View DeleteProf = findViewById(R.id.delete_prof);
+        DeleteProf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                androidx.appcompat.app.AlertDialog.Builder alert = new AlertDialog.Builder(UserProfile.this);
+                alert.setTitle("Android Studio");
+                alert.setMessage("Do you want to delete ?");
+                alert.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        reference.child(user.getUid()).removeValue();
+                    }
+                });
+
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(UserProfile.this, "hey", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                alert.show();
+            }
         });
     }
 }
