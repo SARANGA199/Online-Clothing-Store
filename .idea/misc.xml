@@ -4,18 +4,28 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Team-Achievers/app/src/main/res/drawable/bck.xml" value="0.20277777777777778" />
+        <entry key="..\:/Team-Achievers/app/src/main/res/drawable/exit.xml" value="0.2703125" />
+        <entry key="..\:/Team-Achievers/app/src/main/res/drawable/home.xml" value="0.2703125" />
         <entry key="..\:/Team-Achievers/app/src/main/res/drawable/ic_delete.xml" value="0.2703125" />
         <entry key="..\:/Team-Achievers/app/src/main/res/drawable/ic_loupe.xml" value="0.20277777777777778" />
+        <entry key="..\:/Team-Achievers/app/src/main/res/drawable/ic_menu.xml" value="0.2703125" />
+        <entry key="..\:/Team-Achievers/app/src/main/res/drawable/ratingg.xml" value="0.2703125" />
+        <entry key="..\:/Team-Achievers/app/src/main/res/drawable/reply_arrow.xml" value="0.2703125" />
         <entry key="..\:/Team-Achievers/app/src/main/res/drawable/rounded.xml" value="0.2703125" />
         <entry key="..\:/Team-Achievers/app/src/main/res/drawable/shape_button3.xml" value="0.2526041666666667" />
+        <entry key="..\:/Team-Achievers/app/src/main/res/drawable/shopping_bag.xml" value="0.2703125" />
+        <entry key="..\:/Team-Achievers/app/src/main/res/drawable/user.xml" value="0.2703125" />
         <entry key="..\:/Team-Achievers/app/src/main/res/layout/activity_add_category.xml" value="0.264" />
         <entry key="..\:/Team-Achievers/app/src/main/res/layout/activity_display_category.xml" value="0.25416666666666665" />
         <entry key="..\:/Team-Achievers/app/src/main/res/layout/activity_home.xml" value="0.22274881516587677" />
         <entry key="..\:/Team-Achievers/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Team-Achievers/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
         <entry key="..\:/Team-Achievers/app/src/main/res/layout/category_one.xml" value="0.25416666666666665" />
+        <entry key="..\:/Team-Achievers/app/src/main/res/layout/header.xml" value="0.25416666666666665" />
         <entry key="..\:/Team-Achievers/app/src/main/res/layout/row_category.xml" value="0.264" />
+        <entry key="..\:/Team-Achievers/app/src/main/res/layout/toolbar.xml" value="0.25416666666666665" />
         <entry key="..\:/Team-Achievers/app/src/main/res/layout/update_popup.xml" value="0.2" />
+        <entry key="..\:/Team-Achievers/app/src/main/res/menu/main_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Team-Achievers/app/src/main/res/menu/search.xml" value="0.25416666666666665" />
         <entry key="..\:/Team-Achievers/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />
       </map>

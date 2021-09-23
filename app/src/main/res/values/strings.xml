@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Online clothing store</string>
+
+
+<!--    Menu-->
+    <string name="mainHeader1">Classic Curves</string>
+    <string name="mainHeader2">Life with Fashion</string>
+    <string name="SideHome">Home</string>
+    <string name="SideReq">Request</string>
+    <string name="SideOrder">My Orders</string>
+    <string name="SideCat">Categories</string>
+    <string name="SideProf">My Profile</string>
+    <string name="SideLogin">Login</string>
+    <string name="SideLogOut">Logout</string>
+    <string name="SideContact">ContactUS</string>
+    <string name="SideReview">Review</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer </string>
+    <string name="navigation_drawer_close">Close navigation drawer </string>
+
 </resources>

@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".item_and_category_management.DisplayCategory">
+    tools:context=".item_and_category_management.DisplayCategory"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <FrameLayout
+    <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
+        android:layout_height="match_parent"
+        android:id="@+id/nav_view"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_menu"
+        android:layout_gravity ="start" />
 
-        <Button
-            android:id="@+id/btnAdd"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:text="add Categry"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/orange"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
 
-    </FrameLayout>
+
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:padding="5dp">
+
+
+      <include
+          android:id="@+id/toolbar"
+          layout="@layout/toolbar"
+          android:background="#00FFFFFF" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -38,4 +44,6 @@
         app:layout_constraintVertical_bias="0.816" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

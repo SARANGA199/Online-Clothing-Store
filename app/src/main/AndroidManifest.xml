@@ -31,6 +31,10 @@
         <activity android:name=".request_and_review_management.Request" />
         <activity android:name=".cart_and_order_management.Cart" />
         <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
