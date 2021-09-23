@@ -19,6 +19,7 @@ import android.widget.SearchView;
 
 import com.example.onlineclothingstore.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -31,6 +32,8 @@ public class DisplayCategory extends AppCompatActivity implements NavigationView
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+
+    FloatingActionButton floatingActionButton1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,17 +59,15 @@ public class DisplayCategory extends AppCompatActivity implements NavigationView
 
 
 
+        // Add Category
 
-
-
-//        btnAdd = findViewById(R.id.btnAdd);
-//
-//        btnAdd.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(DisplayCategory.this,AddCategory.class));
-//            }
-//        });
+        floatingActionButton1 = (FloatingActionButton)findViewById(R.id.floatingbtn1);
+        floatingActionButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DisplayCategory.this,AddCategory.class));
+            }
+        });
 
         recyclerView = (RecyclerView) findViewById(R.id.rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

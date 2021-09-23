@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">Online clothing store</string>
+    <string name="maintxt1">SMART SHOPPING</string>
+    <string name="maintxt2">Next way of Shopping</string>
+    <string name="mainMen">Mens Fashion</string>
+    <string name="mainWomen">Women Fashion</string>
+    <string name="mainKids">Kids Fashion</string>
+    <string name="mainShoe">Shoes</string>
+    <string name="mainWatch">Watches</string>
+    <string name="mainGlass">Sunglasses</string>
 
 
-<!--    Menu-->
+    <!--    Menu-->
     <string name="mainHeader1">Classic Curves</string>
     <string name="mainHeader2">Life with Fashion</string>
     <string name="SideHome">Home</string>
@@ -15,7 +23,28 @@
     <string name="SideContact">ContactUS</string>
     <string name="SideReview">Review</string>
 
+
     <string name="navigation_drawer_open">Open navigation drawer </string>
     <string name="navigation_drawer_close">Close navigation drawer </string>
+
+    <string name="ItemDet">SHOES</string>
+    <string name="btnEdit">EDIT</string>
+    <string name="btnCart">Add To Cart</string>
+    <string name="btnBuy">Buy Now</string>
+
+    <string name="btnAddphoto">Add Photo</string>
+    <string name="btnTakephoto">Take Photo</string>
+    <string name="btnUpdate">UPDATE</string>
+    <string name="btnRemove">REMOVE</string>
+    <string name="btnAddItem">ADD ITEM</string>
+    <string name="btnAddCat">ADD CATEGORY</string>
+    <string name="EditCat">EDIT CATEGORY</string>
+    <string name="AddCat">ADD CATEGORY</string>
+    <string name="AddName">ADD ITEM</string>
+    <string name="select">SELECT CATEGORY</string>
+    <string name="editItem">EDIT ITEM</string>
+    <string name="select2"> Shoes</string>
+
+
 
 </resources>
