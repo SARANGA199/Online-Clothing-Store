@@ -3,7 +3,10 @@ package com.example.onlineclothingstore.user_and_payment_management;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,6 +70,16 @@ public class UserProfile extends AppCompatActivity {
                 Toast.makeText(UserProfile.this,"Something wrong happened",Toast.LENGTH_LONG).show();
 
             }
+        });
+
+        View EditProf = findViewById(R.id.edit_prof);
+        EditProf.setOnClickListener((v) -> {
+            Intent i = new Intent(v.getContext(),EditProfile.class);
+            i.putExtra("fullname",nameTextView.getText().toString());
+            i.putExtra("email",emailTextView.getText().toString());
+            i.putExtra("phone",phoneTextView.getText().toString());
+            i.putExtra("address",addressTextView.getText().toString());
+            startActivity(i);
         });
     }
 }

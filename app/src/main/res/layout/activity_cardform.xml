@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".user_and_payment_management.Cardform">
+    tools:context=".user_and_payment_management.cardform">
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
