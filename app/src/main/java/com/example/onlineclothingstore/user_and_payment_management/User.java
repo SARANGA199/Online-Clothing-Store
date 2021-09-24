@@ -1,16 +1,18 @@
 package com.example.onlineclothingstore.user_and_payment_management;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class User {
 
-import android.os.Bundle;
+    public String fullname,email,phone,address,isUser;
 
-import com.example.onlineclothingstore.R;
+    public User(){
 
-public class User extends AppCompatActivity {
+    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user);
+    public User(String fullname,String email,String phone,String address,String isUser){
+        this.fullname = fullname;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.isUser = isUser;
     }
 }

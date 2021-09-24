@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.onlineclothingstore">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineClothingStore">
-        <activity android:name=".user_and_payment_management.User"></activity>
+        <activity android:name=".user_and_payment_management.EditProfile"></activity>
+        <activity android:name=".user_and_payment_management.Addedcards" />
+        <activity android:name=".user_and_payment_management.cardform" />
+        <activity android:name=".user_and_payment_management.UserProfile" />
+        <activity android:name=".user_and_payment_management.Forgotpassword" />
+        <activity android:name=".user_and_payment_management.Profile" />
+        <activity android:name=".user_and_payment_management.Register" />
         <activity android:name=".request_and_review_management.Request" />
         <activity android:name=".item_and_category_management.Item" />
         <activity android:name=".cart_and_order_management.Cart" />
