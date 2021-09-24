@@ -1,7 +1,6 @@
 package com.example.onlineclothingstore.item_and_category_management;
 
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
@@ -51,7 +50,7 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<CategoryModule,Cate
             @Override
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.category.getContext())
-                        .setContentHolder(new ViewHolder(R.layout.update_popup))
+                        .setContentHolder(new ViewHolder(R.layout.update_popupcat))
                         .setExpanded(true,1000)
                         .create();
                // dialogPlus.show();
