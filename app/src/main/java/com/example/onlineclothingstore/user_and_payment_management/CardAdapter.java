@@ -43,7 +43,7 @@ public class CardAdapter extends FirebaseRecyclerAdapter<Cards,CardAdapter.myVie
     @Override
     protected void onBindViewHolder(@NonNull myViewHolder holder, @SuppressLint("RecyclerView")final int position, @NonNull Cards model) {
         holder.cardname.setText(model.getCardname());
-        holder.cardnumber.setText(model.getNumber());
+        holder.cardnumber.setText(model.getDecNumber());
         holder.expdate.setText(model.getExpdate());
         holder.cvv.setText(model.getCv());
 
@@ -68,7 +68,7 @@ public class CardAdapter extends FirebaseRecyclerAdapter<Cards,CardAdapter.myVie
                 Button btnUpdate = view.findViewById(R.id.editcrd);
 
                 name.setText(model.getCardname());
-                number.setText(model.getNumber());
+                number.setText(model.getDecNumber());
                 expdate.setText(model.getExpdate());
                 cv.setText(model.getCv());
 

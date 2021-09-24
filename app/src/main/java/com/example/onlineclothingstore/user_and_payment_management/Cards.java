@@ -48,4 +48,15 @@ public class Cards {
     public String getCv() {
         return cv;
     }
+
+    public String getDecNumber() {
+        String decrypted = "";
+        try {
+            decrypted = AESUtils.decrypt(number);
+            System.out.println("TEST"+ "decrypted:" + decrypted);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return decrypted;
+    }
 }
