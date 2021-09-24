@@ -10,13 +10,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         <activity
             android:name=".item_and_category_management.DisplayItemsUser"
             android:exported="true" >
-
-
-
 
         </activity>
         <activity
@@ -25,6 +23,20 @@
         <activity
             android:name=".item_and_category_management.DisplayCategory"
             android:exported="true">
+
+
+        android:theme="@style/Theme.OnlineClothingStore">
+        <activity android:name=".user_and_payment_management.EditProfile"></activity>
+        <activity android:name=".user_and_payment_management.Addedcards" />
+        <activity android:name=".user_and_payment_management.cardform" />
+        <activity android:name=".user_and_payment_management.UserProfile" />
+        <activity android:name=".user_and_payment_management.Forgotpassword" />
+        <activity android:name=".user_and_payment_management.Profile" />
+        <activity android:name=".user_and_payment_management.Register" />
+        <activity android:name=".request_and_review_management.Request" />
+        <activity android:name=".item_and_category_management.Item" />
+        <activity android:name=".cart_and_order_management.Cart" />
+        <activity android:name=".MainActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

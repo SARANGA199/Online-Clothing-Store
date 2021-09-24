@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Online clothing store</string>
     <string name="maintxt1">SMART SHOPPING</string>
     <string name="maintxt2">Next way of Shopping</string>
@@ -46,4 +47,36 @@
     <string name="select2"> Shoes</string>
 
 
+
+  
+    <string name="logtitle1">Welcome back !</string>
+    <string name="logtitle2">Log in to your existing account</string>
+    <string name="fgt_password">Forget Password ?</string>
+    <string name="noacc">Don\'t have an account ?</string>
+    <string name="signup">Sign Up</string>
+    <string name="regtitle1">Let\'s Get Started !</string>
+    <string name="regtitle2">Create an account to get all features</string>
+    <string name="haveacc">Already have an account ?</string>
+    <string name="login">Log In</string>
+    <string name="namelbl">Full Name</string>
+    <string name="emaillbl">Email</string>
+    <string name="phonelbl">Phone</string>
+    <string name="addresslbl">Address</string>
+    <string name="passwordlbl">Password</string>
+    <string name="usernamelbl">Username</string>
+    <string name="typelbl">Type</string>
+    <string name="edit_profilebtn">Edit Profile</string>
+    <string name="delete_profilebtn">Delete Profile</string>
+    <string name="uploadbtn1">Take</string>
+    <string name="uploadbtn2">Upload</string>
+    <string name="updatebtn">Update</string>
+    <string name="defaultbtn">Default</string>
+    <string name="set_as_defaultbtn">Set as Default</string>
+    <string name="payeditbtn">Edit</string>
+    <string name="payremovebtn">Remove</string>
+    <string name="payadd_newbtn">Add New</string>
+    <string name="pay_nowbtn">Pay Now</string>
 </resources>
+
+
+
