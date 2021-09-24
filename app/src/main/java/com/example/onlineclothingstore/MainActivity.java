@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.onlineclothingstore.user_and_payment_management.Addedcards;
 import com.example.onlineclothingstore.user_and_payment_management.Forgotpassword;
+import com.example.onlineclothingstore.user_and_payment_management.Profile;
 import com.example.onlineclothingstore.user_and_payment_management.Register;
 import com.example.onlineclothingstore.user_and_payment_management.UserProfile;
 import com.example.onlineclothingstore.user_and_payment_management.cardform;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.register:
-                startActivity(new Intent(this, Addedcards.class));
+                startActivity(new Intent(this, Register.class));
                 break;
             case R.id.loginbtn:
                 userLogin();
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if(task.isSuccessful()){
                     //redirect to profile
-                    startActivity(new Intent(MainActivity.this, UserProfile.class));
+                    startActivity(new Intent(MainActivity.this, Profile.class));
                 }
                 else{
                     Toast.makeText(MainActivity.this, "Failed to login!.Please check your credentials",Toast.LENGTH_LONG).show();

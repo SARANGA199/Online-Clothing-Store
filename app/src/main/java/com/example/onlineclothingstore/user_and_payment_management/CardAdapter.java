@@ -77,9 +77,21 @@ public class CardAdapter extends FirebaseRecyclerAdapter<Cards,CardAdapter.myVie
                 btnUpdate.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        String temp = number.getText().toString();
+
+                        String encryptedNumber = "";
+                        String sourceStr = temp;
+                        try {
+                            encryptedNumber = AESUtils.encrypt(sourceStr);
+                            System.out.println("TEST" + "encrypted:" + encryptedNumber);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
                         Map<String,Object> map = new HashMap<>();
                         map.put("cardname",name.getText().toString());
-                        map.put("number",number.getText().toString());
+                        map.put("number",encryptedNumber);
                         map.put("expdate",expdate.getText().toString());
                         map.put("cv",cv.getText().toString());
 
