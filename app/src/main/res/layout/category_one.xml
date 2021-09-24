@@ -15,11 +15,15 @@
         android:background="@color/orange"
         android:padding="15dp">
 
+
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtname1"
             android:text="Category"
+
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="25dp"/>

@@ -65,7 +65,7 @@ public class DisplayCategory extends AppCompatActivity implements NavigationView
         floatingActionButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DisplayCategory.this,AddCategory.class));
+                startActivity(new Intent(DisplayCategory.this,AddItem.class));
             }
         });
 

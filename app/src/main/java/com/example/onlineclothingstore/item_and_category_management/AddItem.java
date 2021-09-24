@@ -105,6 +105,11 @@ public class AddItem extends AppCompatActivity {
                                     newPost.child("image").setValue(t);
                                     progressDialog.dismiss();
 
+                                    Intent intent = new Intent(AddItem.this,DisplayItemsUser.class);
+                                    startActivity(intent);
+
+
+
                                     Toast.makeText(AddItem.this, "Item Added Successfully", Toast.LENGTH_SHORT).show();
                                 }
                             });

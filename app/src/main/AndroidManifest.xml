@@ -12,24 +12,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         <activity
-            android:name=".item_and_category_management.AddItem"
+            android:name=".item_and_category_management.DisplayItemsUser"
             android:exported="true" >
+
+
+
+
+        </activity>
+        <activity
+            android:name=".item_and_category_management.AddItem"
+            android:exported="true"></activity>
+        <activity
+            android:name=".item_and_category_management.DisplayCategory"
+            android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-
-        </activity>
-        <activity
-            android:name=".item_and_category_management.DisplayCategory"
-            android:exported="true">
-
         </activity>
         <activity
             android:name=".item_and_category_management.AddCategory"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity android:name=".user_and_payment_management.User" />
         <activity android:name=".request_and_review_management.Request" />
         <activity android:name=".cart_and_order_management.Cart" />
