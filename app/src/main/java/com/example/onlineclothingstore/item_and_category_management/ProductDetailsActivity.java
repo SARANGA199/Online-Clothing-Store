@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,16 +17,24 @@ import com.example.onlineclothingstore.cart_and_order_management.CartActivity;
 import com.example.onlineclothingstore.cart_and_order_management.Prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 
+
+
     private Button addToCartBtn;
+    private ImageView productImage;
     private ElegantNumberButton numberButton;
     private TextView productprice, productdescription, productname;
     private  String productID= "001";
@@ -44,6 +53,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productdescription = (TextView)findViewById(R.id.product_description_details);
         productprice = (TextView)findViewById(R.id.product_price_details);
 
+        getProductDetails(productID);
 
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,12 +68,12 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         String SaveCurrentTime,SaveCurrentDate;
 
-           // Calendar calForDate = new Calendar.getInstance();
-          //  SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
-            //SaveCurrentDate = currentDate.format(calForDate.getTime());
+           Calendar calForDate =  Calendar.getInstance();
+          SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+            SaveCurrentDate = currentDate.format(calForDate.getTime());
 
-       // SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
-       // SaveCurrentTime = currentTime.format(calForDate.getTime());
+       SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+       SaveCurrentTime = currentTime.format(calForDate.getTime());
 
         DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
 
@@ -71,8 +81,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
         cartMap.put("pid",productID);
         cartMap.put("pname",productname.getText().toString());
         cartMap.put("price",productprice.getText().toString());
-        //cartMap.put("date",SaveCurrentDate);
-        //cartMap.put("time",SaveCurrentTime);
+        cartMap.put("date",SaveCurrentDate);
+        cartMap.put("time",SaveCurrentTime);
         cartMap.put("quantity",numberButton.getNumber());
         cartMap.put("discount","");
 
@@ -94,4 +104,27 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 });
 
     }
+
+    private void getProductDetails(String productID){
+
+        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Products");
+
+        productsRef.child(productID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+
+                if (snapshot.exists())
+                {
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+    }
+
+
 }
