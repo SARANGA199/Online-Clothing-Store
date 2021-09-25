@@ -14,9 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.onlineclothingstore.R;
 import com.example.onlineclothingstore.cart_and_order_management.Model.Cart;
+import com.example.onlineclothingstore.cart_and_order_management.Prevalent.Prevalent;
 import com.example.onlineclothingstore.cart_and_order_management.ViewHolder.CartViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -54,9 +56,10 @@ public class CartActivity extends AppCompatActivity {
 
         FirebaseRecyclerOptions<Cart> options =
                 new FirebaseRecyclerOptions.Builder<Cart>()
-                        .setQuery(cartListRef.child("Admin View")
-                       // .child(Prevalent.currentOnlineUser.getPhone()).child("products"), Cart.class)
-                                .child("09001168601438").child("Products"), Cart.class)
+                        .setQuery(cartListRef.child("User View")
+                       .child(FirebaseAuth.getInstance().getUid())
+                                .child("Products"), Cart.class)
+                               // .child("09001168601438").child("Products"), Cart.class)
                         .build();
 
         FirebaseRecyclerAdapter<Cart, CartViewHolder> adapter
@@ -83,6 +86,8 @@ public class CartActivity extends AppCompatActivity {
             }
         };
 
+        recyclerView.setAdapter(adapter);
+        adapter.startListening();
     }
 
     //comment

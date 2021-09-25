@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.onlineclothingstore.MainActivity;
 import com.example.onlineclothingstore.R;
+import com.example.onlineclothingstore.item_and_category_management.DisplayItemsUser;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Profile extends AppCompatActivity implements View.OnClickListener {
@@ -45,7 +46,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.myprof:
-                startActivity(new Intent(this, UserProfile.class));
+                startActivity(new Intent(this, DisplayItemsUser.class));
                 break;
             case R.id.cardsadd:
                 startActivity(new Intent(this, cardform.class));
