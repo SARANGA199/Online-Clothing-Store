@@ -16,6 +16,10 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.imageview.ShapeableImageView;
 
+
+import org.jetbrains.annotations.NotNull;
+
+
 public class ItemAdapter extends FirebaseRecyclerAdapter<ItemModel,ItemAdapter.myViewHolder> {
 
     public String idItem;
@@ -66,7 +70,10 @@ public class ItemAdapter extends FirebaseRecyclerAdapter<ItemModel,ItemAdapter.m
         ShapeableImageView image;
         TextView name,price,discountPrice;
 
+
         View v;
+
+
 
         public myViewHolder(View itemView) {
             super(itemView);

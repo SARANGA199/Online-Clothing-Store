@@ -1,5 +1,6 @@
 package com.example.onlineclothingstore.item_and_category_management;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.auth.FirebaseAuth;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.example.onlineclothingstore.R;
+import com.google.android.material.imageview.ShapeableImageView;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,6 +58,14 @@ public class ItemDetail extends AppCompatActivity {
     //private  String productID= "";
     public String itemkey="";
 
+
+public class ItemDetail extends AppCompatActivity {
+
+    ShapeableImageView shapeableImageView;
+    TextView txt1,txt2,txt3;
+    Button btn;
+
+    DatabaseReference ref;
 
 
     @Override
@@ -90,6 +110,7 @@ public class ItemDetail extends AppCompatActivity {
                     txt2.setText(itemprice);
                     txt3.setText(itemdis);
                 }
+
             }
 
             @Override
@@ -97,6 +118,7 @@ public class ItemDetail extends AppCompatActivity {
 
             }
         });
+
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,5 +172,7 @@ public class ItemDetail extends AppCompatActivity {
     }
 
 
+
+    }
 
 }
