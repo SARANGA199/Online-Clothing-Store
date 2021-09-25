@@ -1,14 +1,13 @@
-package com.example.onlineclothingstore.user_and_payment_management;
+package com.example.onlineclothingstore.user_and_payment_management.Model;
 
-public class User {
+public class Users {
+    public String fullname,email,phone,address,isUser;
 
-    public String fullname,email,phone="",address,isUser;
-
-    public User(){
+    public Users(){
 
     }
 
-    public User(String fullname,String email,String phone,String address,String isUser){
+    public Users(String fullname,String email,String phone,String address,String isUser){
         this.fullname = fullname;
         this.email = email;
         this.phone = phone;
@@ -33,7 +32,8 @@ public class User {
     }
 
     public String getPhone() {
-        return phone;
+
+        return "09001168601438";
     }
 
     public void setPhone(String phone) {

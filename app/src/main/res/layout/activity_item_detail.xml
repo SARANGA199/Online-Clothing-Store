@@ -98,10 +98,30 @@
 
                 </RelativeLayout>
 
+
+                <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                    android:id="@+id/number_btn"
+                    android:layout_width="171dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginLeft="120dp"
+                    android:elevation="3dp"
+                    app:finalNumber="10"
+                    app:initialNumber="1"
+                    app:textSize="10dp">
+
+                </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+
+                <Button
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="add to cart"
+
                 <Button
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="Delete"
+
 
                     android:textAllCaps="false"
                     android:layout_marginLeft="85dp"
@@ -113,7 +133,27 @@
 
         </androidx.cardview.widget.CardView>
 
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <Button
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="600dp"
+            android:text="back"/>
+        </FrameLayout>
+
     </RelativeLayout>
+
+
+
+
+
+    </RelativeLayout>
+
 
 </ScrollView>
 

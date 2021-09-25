@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -17,7 +16,9 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.imageview.ShapeableImageView;
 
+
 import org.jetbrains.annotations.NotNull;
+
 
 public class ItemAdapter extends FirebaseRecyclerAdapter<ItemModel,ItemAdapter.myViewHolder> {
 
@@ -69,7 +70,10 @@ public class ItemAdapter extends FirebaseRecyclerAdapter<ItemModel,ItemAdapter.m
         ShapeableImageView image;
         TextView name,price,discountPrice;
 
+
         View v;
+
+
 
         public myViewHolder(View itemView) {
             super(itemView);
