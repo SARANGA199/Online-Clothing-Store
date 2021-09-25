@@ -65,7 +65,7 @@ public class DisplayCategory extends AppCompatActivity implements NavigationView
         floatingActionButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DisplayCategory.this,AddItem.class));
+                startActivity(new Intent(DisplayCategory.this,AddPhone.class));
             }
         });
 
@@ -115,7 +115,7 @@ public class DisplayCategory extends AppCompatActivity implements NavigationView
             case R.id.nav_home:
                 break;
             case R.id.nav_category:
-                Intent int1 =new Intent(DisplayCategory.this,AddCategory.class);
+                Intent int1 =new Intent(DisplayCategory.this,DisplayItemsUser.class);
                 startActivity(int1);
                 break;
         }
@@ -143,8 +143,8 @@ public class DisplayCategory extends AppCompatActivity implements NavigationView
 //            }
 //
 //            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                txtSearch(newText);
+//            public boolean onQueryTextChange(String query) {
+//                txtSearch(query);
 //                return false;
 //            }
 //        });
