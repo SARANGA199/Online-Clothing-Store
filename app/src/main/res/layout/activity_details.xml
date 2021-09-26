@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity"
-    android:divider="@drawable/spaceing"
+
     android:showDividers="middle"
     android:gravity="center"
     android:orientation="vertical">
@@ -15,11 +14,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:background="@drawable/text"
+
         android:hint="Dress Type"
         />
     <EditText
-        android:background="@drawable/text"
+
         android:id="@+id/editTxtSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,7 +27,7 @@
         tools:layout_editor_absoluteY="258dp"
         android:hint="Size"/>
     <EditText
-        android:background="@drawable/text"
+
         android:id="@+id/editTxtQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,8 +36,7 @@
         tools:layout_editor_absoluteY="258dp"
         android:hint="Quantity"/>
     <EditText
-        android:background="@drawable/text"
-        android:id="@+id/editTxtDescription"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -50,6 +48,6 @@
         android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn"
+
         app:backgroundTint="#000000" />
 </LinearLayout>
