@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group android:checkableBehavior="single">
+
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="@string/SideHome" />
+        <item
+            android:id="@+id/nav_req"
+            android:icon="@drawable/reply_arrow"
+            android:title="@string/SideReq" />
+        <item
+            android:id="@+id/nav_order"
+            android:icon="@drawable/shopping_bag"
+            android:title="@string/SideOrder" />
+        <item
+            android:id="@+id/nav_category"
+            android:icon="@drawable/ic_menu"
+            android:title="@string/SideCat" />
+
+    </group>
+
+
+
+    <item android:title="Profile">
+        <menu>
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_login"
+                    android:icon="@drawable/enter"
+                    android:title="@string/SideLogin" />
+
+                <item
+                    android:id="@+id/nav_profile"
+                    android:icon="@drawable/user"
+                    android:title="@string/SideProf" />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/exit"
+                    android:title="@string/SideLogOut" />
+            </group>
+        </menu>
+    </item>
+
+
+
+    <item android:title="Communicate" >
+
+        <menu>
+
+            <item
+                android:id="@+id/nav_contact"
+                android:icon="@drawable/contact"
+                android:title="@string/SideContact" />
+            <item
+                android:id="@+id/nav_review"
+                android:icon="@drawable/ratingg"
+                android:title="@string/SideReview" />
+
+        </menu>
+
+    </item>
+
+</menu>
