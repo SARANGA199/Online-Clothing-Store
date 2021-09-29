@@ -8,6 +8,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +37,10 @@ public class UserProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_user_profile);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -58,14 +64,13 @@ public class UserProfile extends AppCompatActivity {
                     String email = userProfile.email;
                     String phone = userProfile.phone;
                     String address = userProfile.address;
-                    String type = userProfile.isUser;
+                    int type = userProfile.isUser;
 
                     hnameTextView.setText(name);
                     nameTextView.setText(name);
                     emailTextView.setText(email);
                     phoneTextView.setText(phone);
                     addressTextView.setText(address);
-                    typeTextView.setText(type);
                 }
             }
 
@@ -92,7 +97,7 @@ public class UserProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 androidx.appcompat.app.AlertDialog.Builder dialog = new AlertDialog.Builder(UserProfile.this);
-                dialog.setTitle("Android Studio");
+                dialog.setTitle("Delete you account");
                 dialog.setMessage("Do you want to delete ?");
                 dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
