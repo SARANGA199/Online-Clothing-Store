@@ -2,7 +2,7 @@ package com.example.onlineclothingstore.cart_and_order_management.Model;
 
 public class Cart {
 
-    private String pid, pname, price, quantity, discount;
+    private String pid, pname, price, quantity, discount,image;
 
 
     public Cart(){
@@ -55,5 +55,13 @@ public class Cart {
 
     public void setDiscount(String discount) {
         this.discount = discount;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

@@ -44,7 +44,8 @@ public class ItemDetail extends AppCompatActivity {
     private ElegantNumberButton numberButton;
     private TextView txt1, txt2, txt3;
     //private  String productID= "";
-    public String itemkey="";
+    public String itemkey="",qty="";
+    public String imgUrl ="";
 
 
 
@@ -54,6 +55,8 @@ public class ItemDetail extends AppCompatActivity {
         setContentView(R.layout.activity_item_detail);
 
          itemkey = getIntent().getStringExtra("itemKey");
+        // qty = getIntent().getStringExtra("qty");
+         //if(qty=="") numberButton.setNumber(qty);
 
         //addToCartBtn = (Button) findViewById(R.id.add_product_to_cart_btn);
         numberButton = (ElegantNumberButton)findViewById(R.id.number_btn);
@@ -89,6 +92,7 @@ public class ItemDetail extends AppCompatActivity {
                     txt1.setText(itemName);
                     txt2.setText(itemprice);
                     txt3.setText(itemdis);
+                    imgUrl = itemimage;
                 }
             }
 
@@ -123,12 +127,13 @@ public class ItemDetail extends AppCompatActivity {
 
         final HashMap<String, Object> cartMap = new HashMap<>();
         cartMap.put("pid",itemkey);
-        cartMap.put("pname",txt3.getText().toString());
-        cartMap.put("price",txt1.getText().toString());
+        cartMap.put("pname",txt1.getText().toString());
+        cartMap.put("price",txt2.getText().toString());
         cartMap.put("date",SaveCurrentDate);
         cartMap.put("time",SaveCurrentTime);
         cartMap.put("quantity",numberButton.getNumber());
-        cartMap.put("discount","");
+        cartMap.put("discount",txt3.getText().toString());
+        cartMap.put("image",imgUrl);
 
         cartListRef.child("User View").child(FirebaseAuth.getInstance().getUid())
                 .child("Products").child(itemkey)
