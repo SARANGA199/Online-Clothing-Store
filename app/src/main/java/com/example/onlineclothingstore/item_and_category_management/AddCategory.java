@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.onlineclothingstore.R;
@@ -33,13 +35,18 @@ public class AddCategory extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getSupportActionBar().hide();
+
         binding = ActivityAddCategoryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         binding.CAT2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddCategory.this,DisplayCategory.class));
+                startActivity(new Intent(AddCategory.this, DisplayCategory.class));
             }
         });
 
@@ -60,8 +67,7 @@ public class AddCategory extends AppCompatActivity {
     }
 
 
-
-    private String category=" ";
+    private String category = " ";
     private String description = " ";
 
 
@@ -70,9 +76,9 @@ public class AddCategory extends AppCompatActivity {
         description = binding.categoryET1.getText().toString().trim();
         //validate
 
-        if(TextUtils.isEmpty(category)){
+        if (TextUtils.isEmpty(category)) {
             Toast.makeText(this, "Please enter category", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             addCategoryFirebase();
         }
 
@@ -87,15 +93,15 @@ public class AddCategory extends AppCompatActivity {
         long timestamp = System.currentTimeMillis();
 
         //add to firebase
-        HashMap<String,Object> hashMap = new HashMap<>();
-        hashMap.put("id",""+timestamp);
-        hashMap.put("category",""+category);
-         hashMap.put("Description",""+description);
-        hashMap.put("timestamp",""+timestamp);
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("id", "" + timestamp);
+        hashMap.put("category", "" + category);
+        hashMap.put("Description", "" + description);
+        hashMap.put("timestamp", "" + timestamp);
 
         //upload
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
-        ref.child(""+timestamp)
+        ref.child("" + timestamp)
                 .setValue(hashMap)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -111,7 +117,7 @@ public class AddCategory extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
 
                         progressDialog.dismiss();
-                        Toast.makeText(AddCategory.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddCategory.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
 
                     }
                 });

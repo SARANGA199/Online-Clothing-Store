@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.SearchView;
 
@@ -38,6 +40,11 @@ public class DisplayCategory extends AppCompatActivity implements NavigationView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getSupportActionBar().hide();
+
+
         setContentView(R.layout.activity_display_category);
 
         //Main Menu
@@ -51,31 +58,30 @@ public class DisplayCategory extends AppCompatActivity implements NavigationView
 
         //Navigation Drawer Menu
         navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);
 
 
-
         // Add Category
 
-        floatingActionButton1 = (FloatingActionButton)findViewById(R.id.floatingbtn1);
+        floatingActionButton1 = (FloatingActionButton) findViewById(R.id.floatingbtn1);
         floatingActionButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DisplayCategory.this,AddPhone.class));
+                startActivity(new Intent(DisplayCategory.this, AddPhone.class));
             }
         });
 
         recyclerView = (RecyclerView) findViewById(R.id.rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        FirebaseRecyclerOptions<CategoryModule>  options=
+        FirebaseRecyclerOptions<CategoryModule> options =
                 new FirebaseRecyclerOptions.Builder<CategoryModule>()
-                  .setQuery(FirebaseDatabase.getInstance().getReference().child("Categories"),CategoryModule.class)
-                  .build();
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Categories"), CategoryModule.class)
+                        .build();
 
         categoryAdapter = new CategoryAdapter(options);
         recyclerView.setAdapter(categoryAdapter);
@@ -95,27 +101,26 @@ public class DisplayCategory extends AppCompatActivity implements NavigationView
     }
 
 
-
     //to  stop app get close when pressing back key
     @Override
-    public void onBackPressed(){
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }else{
+        } else {
             super.onBackPressed();
         }
     }
 
-     //Menu Item select
+    //Menu Item select
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.nav_home:
                 break;
             case R.id.nav_category:
-                Intent int1 =new Intent(DisplayCategory.this,DisplayItemsUser.class);
+                Intent int1 = new Intent(DisplayCategory.this, DisplayItemAdmin.class);
                 startActivity(int1);
                 break;
         }

@@ -25,7 +25,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -62,7 +66,7 @@ public class ItemDetail extends AppCompatActivity {
 public class ItemDetail extends AppCompatActivity {
 
     ShapeableImageView shapeableImageView;
-    TextView txt1,txt2,txt3;
+    TextView txt1,txt2,txt3,txt4;
     Button btn;
 
     DatabaseReference ref;
@@ -71,9 +75,22 @@ public class ItemDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getSupportActionBar().hide();
         setContentView(R.layout.activity_item_detail);
 
+
+        shapeableImageView = (ShapeableImageView)findViewById(R.id.img3);
+        txt1 = (TextView)findViewById(R.id.nameText3);
+        txt2 = (TextView)findViewById(R.id.price3);
+        txt3 = (TextView)findViewById(R.id.discountPrice3);
+        txt4 = (TextView)findViewById(R.id.descri);
+
+        ref = FirebaseDatabase.getInstance().getReference().child("Products");
+
          itemkey = getIntent().getStringExtra("itemKey");
+
 
         //addToCartBtn = (Button) findViewById(R.id.add_product_to_cart_btn);
         numberButton = (ElegantNumberButton)findViewById(R.id.number_btn);
@@ -99,17 +116,29 @@ public class ItemDetail extends AppCompatActivity {
         ref.child(itemkey).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    String itemName = snapshot.child("itemName").getValue().toString();
-                    String itemprice = snapshot.child("iprice").getValue().toString();
-                    String itemdis = snapshot.child("idiscountPrice").getValue().toString();
-                    String itemimage = snapshot.child("image").getValue().toString();
 
-                    Picasso.get().load(itemimage).into(shapeableImageView);
-                    txt1.setText(itemName);
-                    txt2.setText(itemprice);
-                    txt3.setText(itemdis);
-                }
+                  if(snapshot.exists()){
+                      String itemName = snapshot.child("itemName").getValue().toString();
+                      String itemprice = snapshot.child("iprice").getValue().toString();
+                      String itemdis = snapshot.child("idiscountPrice").getValue().toString();
+                      String itemimage = snapshot.child("image").getValue().toString();
+                      String itemdes = snapshot.child("idescription").getValue().toString();
+
+                      Picasso.get().load(itemimage).into(shapeableImageView);
+                      txt1.setText(itemName);
+                      txt2.setText(itemprice);
+                      txt3.setText(itemdis);
+                      txt4.setText(itemdes);
+
+                      //Navigation to main
+                      btn.setOnClickListener(new View.OnClickListener() {
+                          @Override
+                          public void onClick(View v) {
+                              Intent int1 = new Intent(ItemDetail.this,DisplayCategory.class);
+                              startActivity(int1);
+                          }
+                      });
+                  }
 
             }
 

@@ -28,6 +28,9 @@
         
 
         <activity
+            android:name=".item_and_category_management.DisplayItemAdmin"
+            android:exported="true" />
+        <activity
             android:name=".item_and_category_management.ItemAdapter"
             android:exported="true" />
         <activity
