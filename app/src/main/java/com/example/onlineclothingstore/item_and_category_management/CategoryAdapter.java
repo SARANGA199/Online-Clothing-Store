@@ -1,8 +1,10 @@
 package com.example.onlineclothingstore.item_and_category_management;
 
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class CategoryAdapter extends FirebaseRecyclerAdapter<CategoryModule,CategoryAdapter.myViewHolder> {
+public class CategoryAdapter extends FirebaseRecyclerAdapter<CategoryModule, CategoryAdapter.myViewHolder> {
 
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
@@ -40,7 +42,7 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<CategoryModule,Cate
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull CategoryModule model) {
+    protected void onBindViewHolder(@NonNull myViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull CategoryModule model) {
 
         holder.category.setText(model.getCategory());
         holder.Description.setText(model.getDescription());
@@ -51,9 +53,12 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<CategoryModule,Cate
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.category.getContext())
                         .setContentHolder(new ViewHolder(R.layout.update_popupcat))
-                        .setExpanded(true,1200)
+
+                        //.setExpanded(true,1000)
+                        .setGravity(Gravity.CENTER)
+                        .setMargin(50, 0, 50, 0)
                         .create();
-               // dialogPlus.show();
+                // dialogPlus.show();
                 View view = dialogPlus.getHolderView();
 
                 EditText category = view.findViewById(R.id.txtCAT);
@@ -70,9 +75,9 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<CategoryModule,Cate
                 btnUpdate.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Map<String,Object> map= new HashMap<>();
-                        map.put("category",category.getText().toString());
-                        map.put("Description",Description.getText().toString());
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("category", category.getText().toString());
+                        map.put("Description", Description.getText().toString());
 
                         FirebaseDatabase.getInstance().getReference().child("Categories")
                                 .child(getRef(position).getKey()).updateChildren(map)
@@ -85,7 +90,7 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<CategoryModule,Cate
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
-                                    public void onFailure( Exception e) {
+                                    public void onFailure(Exception e) {
                                         Toast.makeText(holder.category.getContext(), "Error while Updating", Toast.LENGTH_SHORT).show();
                                         dialogPlus.dismiss();
                                     }
@@ -97,36 +102,35 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<CategoryModule,Cate
         });
 
         //Delete Category
-      holder.btnDelete.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              AlertDialog.Builder builder = new AlertDialog.Builder(holder.category.getContext());
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(holder.category.getContext());
 
-              builder.setTitle("Are you sure ?");
-              builder.setMessage("Deleted data can't be Undo ");
+                builder.setTitle("Are you sure ?");
+                builder.setMessage("Deleted data can't be Undo ");
 
-              builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                  @Override
-                  public void onClick(DialogInterface dialog, int which) {
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-                      FirebaseDatabase.getInstance().getReference().child("Categories")
-                              .child(Objects.requireNonNull(getRef(position).getKey())).removeValue();
+                        FirebaseDatabase.getInstance().getReference().child("Categories")
+                                .child(Objects.requireNonNull(getRef(position).getKey())).removeValue();
 
-                  }
-              });
+                    }
+                });
 
-              builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                  @Override
-                  public void onClick(DialogInterface dialog, int which) {
-                      Toast.makeText(holder.category.getContext(), "Cancelled", Toast.LENGTH_SHORT).show();
-                  }
-              });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(holder.category.getContext(), "Cancelled", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
-              builder.show();
+                builder.show();
 
-          }
-      });
-
+            }
+        });
 
 
     }
@@ -134,24 +138,24 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<CategoryModule,Cate
     @NonNull
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_one,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_one, parent, false);
         return new myViewHolder(view);
     }
 
-    class myViewHolder extends RecyclerView.ViewHolder{
+    class myViewHolder extends RecyclerView.ViewHolder {
 
-        TextView category,Description;
+        TextView category, Description;
 
-        Button btnEdit,btnDelete;
+        Button btnEdit, btnDelete;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
 
-             category = (TextView)itemView.findViewById(R.id.txtname1);
-             Description = (TextView)itemView.findViewById(R.id.txtname2);
+            category = (TextView) itemView.findViewById(R.id.txtname1);
+            Description = (TextView) itemView.findViewById(R.id.txtname2);
 
-            btnEdit = (Button)itemView.findViewById(R.id.btnEdit);
-            btnDelete = (Button)itemView.findViewById(R.id.btnDelete);
+            btnEdit = (Button) itemView.findViewById(R.id.btnEdit);
+            btnDelete = (Button) itemView.findViewById(R.id.btnDelete);
 
         }
     }
