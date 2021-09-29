@@ -53,6 +53,7 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<CategoryModule, Cat
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.category.getContext())
                         .setContentHolder(new ViewHolder(R.layout.update_popupcat))
+
                         //.setExpanded(true,1000)
                         .setGravity(Gravity.CENTER)
                         .setMargin(50, 0, 50, 0)

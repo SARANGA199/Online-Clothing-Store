@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,13 +48,22 @@ public class CardAdapter extends FirebaseRecyclerAdapter<Cards,CardAdapter.myVie
         holder.expdate.setText(model.getExpdate());
         holder.cvv.setText(model.getCv());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "NIGGA", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(),CardDetails.class);
+                intent.putExtra("cardKey",getRef(position).getKey());
+                v.getContext().startActivity(intent);
+            }
+        });
 
         holder.updatecrd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.cvv.getContext())
                         .setContentHolder(new ViewHolder(R.layout.update_popup))
-                        .setExpanded(true,1200)
+                        .setExpanded(true,1400)
                         .create();
 
                 dialogPlus.show();

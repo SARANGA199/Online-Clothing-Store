@@ -279,6 +279,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:textSize="18dp"
+                android:text="Customer"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
 
