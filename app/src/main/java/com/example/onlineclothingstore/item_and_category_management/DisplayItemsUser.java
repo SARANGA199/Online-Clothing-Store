@@ -29,9 +29,9 @@ public class DisplayItemsUser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+      requestWindowFeature(Window.FEATURE_NO_TITLE);
+      this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
        // getSupportActionBar().hide();
 
         setContentView(R.layout.activity_display_items_user);
@@ -63,44 +63,43 @@ public class DisplayItemsUser extends AppCompatActivity {
     }
 
     //SEARCH
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.search,menu);
-
-        MenuItem item = menu.findItem(R.id.search);
-        SearchView searchView = (SearchView)item.getActionView();
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                txtSearch(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String query) {
-                txtSearch(query);
-                return false;
-            }
-        });
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-
-    private void txtSearch(String str){
-
-        FirebaseRecyclerOptions<ItemModel> options =
-                new FirebaseRecyclerOptions.Builder<ItemModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").orderByChild("iproduct").startAt(str).endAt(str+"~"), ItemModel.class)
-                        .build();
-
-
-        itemAdapter = new ItemAdapter(options);
-        itemAdapter.startListening();
-        recyclerView.setAdapter(itemAdapter);
-    }
+    //  @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//
+//        getMenuInflater().inflate(R.menu.search,menu);
+//
+//        MenuItem item = menu.findItem(R.id.search);
+//        SearchView searchView = (SearchView)item.getActionView();
+//
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                txtSearch(query);
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String query) {
+//                txtSearch(query);
+//                return false;
+//            }
+//        });
+//
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//
+//    private void txtSearch(String str){
+//
+//        FirebaseRecyclerOptions<ItemModel> options =
+//                new FirebaseRecyclerOptions.Builder<ItemModel>()
+//                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").orderByChild("iproduct").startAt(str).endAt(str+"~"), ItemModel.class)
+//                        .build();
+//
+//
+//        itemAdapter = new ItemAdapter(options);
+//        itemAdapter.startListening();
+//        recyclerView.setAdapter(itemAdapter);
+//    }
 }
 

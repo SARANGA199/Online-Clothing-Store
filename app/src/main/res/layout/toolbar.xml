@@ -9,8 +9,8 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_alignParentRight="true"
-        android:layout_marginLeft="290dp"
+        android:layout_marginLeft="270dp"
         android:padding="15dp"
-        android:src="@drawable/ic_loupe" />
+        android:src="@drawable/ic_baseline_shopping_cart_24" />
 
 </androidx.appcompat.widget.Toolbar>
