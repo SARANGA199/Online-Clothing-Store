@@ -103,9 +103,33 @@
 
                 </RelativeLayout>
 
+
                 <TextView
                     android:id="@+id/descri"
                     android:layout_width="240dp"
+
+
+                <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                    android:id="@+id/number_btn"
+                    android:layout_width="171dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginLeft="120dp"
+                    android:elevation="3dp"
+                    app:finalNumber="10"
+                    app:initialNumber="1"
+                    app:textSize="10dp">
+
+                </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+
+                <Button
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="add to cart"
+
+                <Button
+                    android:layout_width="120dp"
+
                     android:layout_height="wrap_content"
                    android:layout_marginLeft="25dp"
                     android:layout_toRightOf="@id/new1"
@@ -115,10 +139,12 @@
                     android:textSize="18dp"
                     android:textStyle="bold" />
 
+
                 <Button
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:text="ADD To CART"
+
                     android:textAllCaps="false"
                     android:layout_marginLeft="85dp"
                     android:layout_marginBottom="20dp"
@@ -129,7 +155,27 @@
 
         </androidx.cardview.widget.CardView>
 
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <Button
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="600dp"
+            android:text="back"/>
+        </FrameLayout>
+
     </RelativeLayout>
+
+
+
+
+
+    </RelativeLayout>
+
 
 </ScrollView>
 
