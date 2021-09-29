@@ -60,7 +60,8 @@ public class ItemDetail extends AppCompatActivity {
     private ElegantNumberButton numberButton;
     private TextView txt1, txt2, txt3;
     //private  String productID= "";
-    public String itemkey="";
+    public String itemkey="",qty="";
+    public String imgUrl ="";
 
 
 public class ItemDetail extends AppCompatActivity {
@@ -90,6 +91,8 @@ public class ItemDetail extends AppCompatActivity {
         ref = FirebaseDatabase.getInstance().getReference().child("Products");
 
          itemkey = getIntent().getStringExtra("itemKey");
+        // qty = getIntent().getStringExtra("qty");
+         //if(qty=="") numberButton.setNumber(qty);
 
 
         //addToCartBtn = (Button) findViewById(R.id.add_product_to_cart_btn);
@@ -117,6 +120,9 @@ public class ItemDetail extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                
+
+
                   if(snapshot.exists()){
                       String itemName = snapshot.child("itemName").getValue().toString();
                       String itemprice = snapshot.child("iprice").getValue().toString();
@@ -129,6 +135,7 @@ public class ItemDetail extends AppCompatActivity {
                       txt2.setText(itemprice);
                       txt3.setText(itemdis);
                       txt4.setText(itemdes);
+                      imgUrl = itemimage;
 
                       //Navigation to main
                       btn.setOnClickListener(new View.OnClickListener() {
@@ -139,6 +146,7 @@ public class ItemDetail extends AppCompatActivity {
                           }
                       });
                   }
+
 
             }
 
@@ -174,12 +182,13 @@ public class ItemDetail extends AppCompatActivity {
 
         final HashMap<String, Object> cartMap = new HashMap<>();
         cartMap.put("pid",itemkey);
-        cartMap.put("pname",txt3.getText().toString());
-        cartMap.put("price",txt1.getText().toString());
+        cartMap.put("pname",txt1.getText().toString());
+        cartMap.put("price",txt2.getText().toString());
         cartMap.put("date",SaveCurrentDate);
         cartMap.put("time",SaveCurrentTime);
         cartMap.put("quantity",numberButton.getNumber());
-        cartMap.put("discount","");
+        cartMap.put("discount",txt3.getText().toString());
+        cartMap.put("image",imgUrl);
 
         cartListRef.child("User View").child(FirebaseAuth.getInstance().getUid())
                 .child("Products").child(itemkey)

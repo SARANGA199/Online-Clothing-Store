@@ -22,7 +22,8 @@
 
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         tools:replace="android:theme">
-        <activity android:name=".cart_and_order_management.test"></activity>
+        <activity android:name=".cart_and_order_management.ConfirmFinalOrderActivity"></activity>
+        <activity android:name=".cart_and_order_management.test" />
         <activity android:name=".item_and_category_management.ItemDetail" />
 
         
@@ -42,9 +43,11 @@
         <activity
             android:name=".item_and_category_management.DisplayItemsUser"
 
-            android:exported="true"></activity>
+            android:exported="true" />
+
 
      
+
         <activity
             android:name=".item_and_category_management.AddItem"
             android:exported="true" />
@@ -69,7 +72,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".cart_and_order_management.CartActivity"></activity>
+        <activity android:name=".cart_and_order_management.CartActivity" />
         <activity
             android:name=".item_and_category_management.AddCategory"
             android:exported="true" />
