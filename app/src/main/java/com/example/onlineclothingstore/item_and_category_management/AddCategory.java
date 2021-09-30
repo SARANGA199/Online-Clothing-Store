@@ -54,7 +54,7 @@ public class AddCategory extends AppCompatActivity {
 
         //configure progress dialog
         progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Pls Wait");
+        progressDialog.setTitle("Please Wait");
         progressDialog.setCanceledOnTouchOutside(false);
 
         //handle click
@@ -121,5 +121,13 @@ public class AddCategory extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    //to  stop app get close when pressing back key
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent int1 = new Intent(AddCategory.this, DisplayCategory.class);
+        startActivity(int1);
     }
 }

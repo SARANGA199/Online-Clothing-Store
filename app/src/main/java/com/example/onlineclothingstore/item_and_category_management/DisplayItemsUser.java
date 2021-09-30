@@ -16,6 +16,8 @@ import android.view.WindowManager;
 import android.widget.SearchView;
 
 import com.example.onlineclothingstore.R;
+import com.example.onlineclothingstore.user_and_payment_management.Addedcards;
+import com.example.onlineclothingstore.user_and_payment_management.CardDetails;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -53,7 +55,7 @@ public class DisplayItemsUser extends AppCompatActivity {
 
     }
 
-}
+
 
 
     @Override
@@ -69,43 +71,51 @@ public class DisplayItemsUser extends AppCompatActivity {
     }
 
     //SEARCH
-    //  @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//
-//        getMenuInflater().inflate(R.menu.search,menu);
-//
-//        MenuItem item = menu.findItem(R.id.search);
-//        SearchView searchView = (SearchView)item.getActionView();
-//
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                txtSearch(query);
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String query) {
-//                txtSearch(query);
-//                return false;
-//            }
-//        });
-//
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//
-//
-//    private void txtSearch(String str){
-//
-//        FirebaseRecyclerOptions<ItemModel> options =
-//                new FirebaseRecyclerOptions.Builder<ItemModel>()
-//                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").orderByChild("iproduct").startAt(str).endAt(str+"~"), ItemModel.class)
-//                        .build();
-//
-//
-//        itemAdapter = new ItemAdapter(options);
-//        itemAdapter.startListening();
-//        recyclerView.setAdapter(itemAdapter);
-//    }
+      @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.search,menu);
+
+        MenuItem item = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView)item.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                txtSearch(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                txtSearch(query);
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    private void txtSearch(String str){
+
+        FirebaseRecyclerOptions<ItemModel> options =
+                new FirebaseRecyclerOptions.Builder<ItemModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").orderByChild("iproduct").startAt(str).endAt(str+"~"), ItemModel.class)
+                        .build();
+
+
+        itemAdapter = new ItemAdapter(options);
+        itemAdapter.startListening();
+        recyclerView.setAdapter(itemAdapter);
+    }
+
+    //to  stop app get close when pressing back key
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent int1 = new Intent(DisplayItemsUser.this, DisplayCategoryUser.class);
+        startActivity(int1);
+    }
 }
 

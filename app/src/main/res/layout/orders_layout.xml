@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="50dp"
+        android:paddingTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="40dp"
+
+        app:cardMaxElevation="20dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_light_background">
+
+
+
+
+
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/cart_product_image"-->
+        <!--            android:layout_width="111dp"-->
+        <!--            android:layout_height="86dp"-->
+        <!--            android:layout_marginStart="10dp"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:layout_marginTop="30dp"-->
+        <!--            android:layout_marginBottom="10dp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.0"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/imageView2"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/imageView2"-->
+        <!--            app:layout_constraintVertical_bias="0.348"-->
+        <!--             />-->
+
+
+        <TextView
+            android:id="@+id/Oder_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="cursive"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="20dp"
+            android:text="Baby kit"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="normal|bold"
+            android:autoSizeTextType="none" />
+
+        <TextView
+            android:id="@+id/order_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+
+            android:layout_marginTop="60dp"
+            android:text="Dcode: DB001"
+            android:textColor="@android:color/darker_gray"
+            android:textColorHighlight="#009688"
+            android:textSize="16sp"
+            android:autoSizeTextType="uniform" />
+
+        <TextView
+            android:id="@+id/order_total_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="90dp"
+            android:text="Rs. 000.00"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="16sp"
+            android:autoSizeTextType="uniform" />
+
+        <TextView
+            android:id="@+id/order_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="120dp"
+            android:text="Rs. 000.00"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="16sp"
+            android:autoSizeTextType="uniform" />
+
+        <TextView
+            android:id="@+id/order_date_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="150dp"
+            android:text="Rs. 000.00"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="16sp"
+            android:autoSizeTextType="uniform" />
+
+        <Button
+            android:id="@+id/show_all_products"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="Show this Orders products"
+            app:backgroundTint="@color/dark_red"></Button>
+
+
+    </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+

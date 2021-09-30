@@ -19,11 +19,21 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.SearchView;
 
+import com.example.onlineclothingstore.MainActivity;
 import com.example.onlineclothingstore.R;
+import com.example.onlineclothingstore.cart_and_order_management.AdminNewOrdersActivity;
+import com.example.onlineclothingstore.user_and_payment_management.UserProfile;
+import com.example.onlineclothingstore.user_and_payment_management.cardform;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.jetbrains.annotations.NotNull;
 
 public class DisplayCategory extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -40,9 +50,7 @@ public class DisplayCategory extends AppCompatActivity implements NavigationView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //getSupportActionBar().hide();
+
 
 
         setContentView(R.layout.activity_display_category);
@@ -54,7 +62,7 @@ public class DisplayCategory extends AppCompatActivity implements NavigationView
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
 
         //Navigation Drawer Menu
         navigationView.bringToFront();
@@ -108,6 +116,8 @@ public class DisplayCategory extends AppCompatActivity implements NavigationView
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            Intent int1 = new Intent(DisplayCategory.this, DisplayCategory.class);
+            startActivity(int1);
         }
     }
 
@@ -119,9 +129,53 @@ public class DisplayCategory extends AppCompatActivity implements NavigationView
         switch (item.getItemId()) {
             case R.id.nav_home:
                 break;
+            case R.id.nav_req:
+                break;
+            case R.id.nav_order:
+                Intent int6 = new Intent(DisplayCategory.this, AdminNewOrdersActivity.class);
+                startActivity(int6);
+                break;
             case R.id.nav_category:
-                Intent int1 = new Intent(DisplayCategory.this, DisplayItemAdmin.class);
-                startActivity(int1);
+                //////////////
+                String uid = FirebaseAuth.getInstance().getUid();
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                firebaseDatabase.getReference().child("Users").child(uid).child("isUser").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        int usertype = snapshot.getValue(Integer.class);
+                        if(usertype == 1){
+                            Intent int1 =new Intent(DisplayCategory.this, DisplayItemsUser.class);
+                            startActivity(int1);
+                        }
+                        else{
+                            Intent int2 =new Intent(DisplayCategory.this, DisplayItemAdmin.class);
+                            startActivity(int2);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                    }
+                });
+                //////////////
+
+//                Intent int1 = new Intent(DisplayCategory.this, DisplayItemsUser.class);
+//                startActivity(int1);
+                break;
+            case R.id.nav_login:
+                Intent int3 = new Intent(DisplayCategory.this, AddCategory.class);
+                startActivity(int3);
+                break;
+            case R.id.nav_profile:
+                Intent int2 = new Intent(DisplayCategory.this, UserProfile.class);
+                startActivity(int2);
+                break;
+            case R.id.nav_logout:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(DisplayCategory.this, MainActivity.class));
+                break;
+            case R.id.nav_contact:
                 break;
         }
 

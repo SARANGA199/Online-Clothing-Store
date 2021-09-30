@@ -3,10 +3,9 @@ package com.example.onlineclothingstore;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
@@ -16,14 +15,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.onlineclothingstore.item_and_category_management.AddCategory;
+import com.example.onlineclothingstore.item_and_category_management.AddPhone;
 import com.example.onlineclothingstore.item_and_category_management.DisplayCategory;
-import com.example.onlineclothingstore.user_and_payment_management.Addedcards;
-import com.example.onlineclothingstore.user_and_payment_management.EditProfile;
+import com.example.onlineclothingstore.item_and_category_management.DisplayCategoryUser;
+import com.example.onlineclothingstore.request_and_review_management.FirstActivity;
+import com.example.onlineclothingstore.request_and_review_management.SecondActivity;
 import com.example.onlineclothingstore.user_and_payment_management.Forgotpassword;
-import com.example.onlineclothingstore.user_and_payment_management.Profile;
 import com.example.onlineclothingstore.user_and_payment_management.Register;
-import com.example.onlineclothingstore.user_and_payment_management.UserProfile;
 import com.example.onlineclothingstore.user_and_payment_management.cardform;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -44,12 +42,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FirebaseAuth mAuth;
 
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
 
@@ -66,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         forgotPassword = (TextView) findViewById(R.id.forget_pw);
         forgotPassword.setOnClickListener(this);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Please Wait");
+        progressDialog.setCanceledOnTouchOutside(false);
 
     }
 
@@ -107,6 +111,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
+        //show
+        progressDialog.setMessage("Logging in...");
+        progressDialog.show();
+
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -120,10 +128,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                             int usertype = snapshot.getValue(Integer.class);
                             if(usertype == 1){
-                                Intent int1 =new Intent(MainActivity.this, cardform.class);
+                                progressDialog.dismiss();
+                                Intent int1 =new Intent(MainActivity.this, DisplayCategoryUser.class);
                                 startActivity(int1);
                             }
                             else{
+                                progressDialog.dismiss();
                                 Intent int2 =new Intent(MainActivity.this, DisplayCategory.class);
                                 startActivity(int2);
                             }

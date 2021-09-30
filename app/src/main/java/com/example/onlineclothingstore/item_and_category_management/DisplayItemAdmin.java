@@ -8,6 +8,7 @@ import com.example.onlineclothingstore.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.core.view.GravityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -64,5 +65,13 @@ public class DisplayItemAdmin extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         itemAdapter.stopListening();
+    }
+
+    //to  stop app get close when pressing back key
+    @Override
+    public void onBackPressed() {
+            super.onBackPressed();
+            Intent int1 = new Intent(DisplayItemAdmin.this, DisplayCategory.class);
+            startActivity(int1);
     }
 }

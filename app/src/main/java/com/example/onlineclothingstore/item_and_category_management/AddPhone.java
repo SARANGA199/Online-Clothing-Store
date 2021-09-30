@@ -84,13 +84,13 @@ public class AddPhone extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //getSupportActionBar().hide();
-
         setContentView(R.layout.activity_add_phone);
+
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        //getSupportActionBar().hide();
+
+
 
         //back = findViewById(R.id.back);
         t1 = findViewById(R.id.t1);
@@ -406,5 +406,11 @@ public class AddPhone extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-
+    //to  stop app get close when pressing back key
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent int1 = new Intent(AddPhone.this, DisplayCategory.class);
+        startActivity(int1);
+    }
 }

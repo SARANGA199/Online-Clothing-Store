@@ -16,15 +16,11 @@
         <item
             android:id="@+id/nav_order"
             android:icon="@drawable/shopping_bag"
-            android:title="Orders" />
+            android:title="@string/SideOrder" />
         <item
             android:id="@+id/nav_category"
             android:icon="@drawable/ic_menu"
             android:title="Items" />
-        <item
-            android:id="@+id/nav_login"
-            android:icon="@drawable/addcat"
-            android:title="Add Category" />
 
     </group>
 

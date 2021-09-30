@@ -23,12 +23,10 @@
         android:supportsRtl="true"
 
 
-        <activity android:name=".user_and_payment_management.CardDetails"></activity>
-
-
-
-        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+        android:theme="@style/Theme.OnlineClothingStore"
         tools:replace="android:theme">
+
+        <activity android:name=".user_and_payment_management.CardDetails"></activity>
         <activity android:name=".cart_and_order_management.ConfirmFinalOrderActivity"></activity>
         <activity android:name=".cart_and_order_management.test" />
         <activity android:name=".item_and_category_management.ItemDetail" />
@@ -40,9 +38,6 @@
             android:exported="true" />
         <activity
             android:name=".item_and_category_management.ItemAdapter"
-            android:exported="true" />
-        <activity
-            android:name=".item_and_category_management.ItemDetail"
             android:exported="true" />
         <activity
             android:name=".item_and_category_management.AddPhone"
@@ -61,20 +56,29 @@
         <activity
             android:name=".item_and_category_management.DisplayCategory"
             android:exported="true" />
+        <activity
+            android:name=".item_and_category_management.DisplayCategoryUser"
+            android:exported="true" />
+        <activity
+            android:name=".request_and_review_management.FirstActivity"
+            android:exported="true" />
+        <activity
+            android:name=".request_and_review_management.SecondActivity"
+            android:exported="true" />
+        <activity
+            android:name=".request_and_review_management.ListAdapter"
+            android:exported="true" />
         <activity android:name=".user_and_payment_management.EditProfile" />
         <activity android:name=".user_and_payment_management.Addedcards" />
         <activity android:name=".user_and_payment_management.cardform" />
         <activity android:name=".user_and_payment_management.UserProfile" />
         <activity android:name=".user_and_payment_management.Forgotpassword" />
-        <activity android:name=".user_and_payment_management.Profile" />
         <activity android:name=".user_and_payment_management.Register" />
         <activity android:name=".request_and_review_management.Request" />
 
-
-        <activity android:name=".cart_and_order_management.Cart" />
-
-
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".item_and_category_management.SplashScreen"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -82,7 +86,17 @@
             </intent-filter>
         </activity>
 
+
+<!--        <activity android:name=".cart_and_order_management.Cart" />-->
+
+
+        <activity android:name=".MainActivity">
+        </activity>
+
         <activity android:name=".cart_and_order_management.CartActivity" />
+        <activity android:name=".cart_and_order_management.AdminNewOrdersActivity" />
+        <activity android:name=".cart_and_order_management.AdminUserProductsActivity" />
+        <activity android:name=".cart_and_order_management.UserProductsActivity" />
 
         <activity
             android:name=".item_and_category_management.AddCategory"

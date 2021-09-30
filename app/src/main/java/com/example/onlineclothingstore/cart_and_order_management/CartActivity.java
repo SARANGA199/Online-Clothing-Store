@@ -21,8 +21,10 @@ import com.example.onlineclothingstore.R;
 import com.example.onlineclothingstore.cart_and_order_management.Model.Cart;
 import com.example.onlineclothingstore.cart_and_order_management.Prevalent.Prevalent;
 import com.example.onlineclothingstore.cart_and_order_management.ViewHolder.CartViewHolder;
+import com.example.onlineclothingstore.item_and_category_management.DisplayCategoryUser;
 import com.example.onlineclothingstore.item_and_category_management.DisplayItemsUser;
 import com.example.onlineclothingstore.item_and_category_management.ItemDetail;
+import com.example.onlineclothingstore.user_and_payment_management.Addedcards;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -43,6 +45,7 @@ public class CartActivity extends AppCompatActivity {
     private Button Nextprocessbtn,btnnext;
     private TextView textTotalAmount;
     private static final String TAG = "TAG";
+    private int overTotalPrice=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +64,9 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CartActivity.this,ConfirmFinalOrderActivity.class);
+                intent.putExtra("Total Price", String.valueOf(overTotalPrice));
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -98,6 +103,9 @@ public class CartActivity extends AppCompatActivity {
                         .placeholder(R.drawable.common_google_signin_btn_icon_dark)
                         .error(R.drawable.common_google_signin_btn_icon_dark_normal)
                         .into(holder.shapeableImageView);
+
+                int oneTypeProductPrice = ((Integer.valueOf(model.getPrice()))) * Integer.valueOf(model.getQuantity());
+                overTotalPrice = overTotalPrice + oneTypeProductPrice;
 
 
 
@@ -166,6 +174,14 @@ public class CartActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
         adapter.startListening();
+    }
+
+    //to  stop app get close when pressing back key
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent int1 = new Intent(CartActivity.this, DisplayCategoryUser.class);
+        startActivity(int1);
     }
 
     //comment

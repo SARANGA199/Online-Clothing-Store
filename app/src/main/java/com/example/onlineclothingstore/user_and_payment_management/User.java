@@ -51,11 +51,11 @@ public class User {
         this.address = address;
     }
 
-    public String getIsUser() {
+    public int getIsUser() {
         return isUser;
     }
 
-    public void setIsUser(String isUser) {
+    public void setIsUser(int isUser) {
         this.isUser = isUser;
     }
 }

@@ -58,17 +58,17 @@ public class ItemDetail extends AppCompatActivity {
     private Button  btn,back;
     private ShapeableImageView shapeableImageView;
     private ElegantNumberButton numberButton;
-    private TextView txt1, txt2, txt3;
+//    private TextView txt1, txt2, txt3;
     //private  String productID= "";
     public String itemkey="",qty="";
     public String imgUrl ="";
 
 
-public class ItemDetail extends AppCompatActivity {
 
-    ShapeableImageView shapeableImageView;
+
+
     TextView txt1,txt2,txt3,txt4;
-    Button btn;
+
 
     DatabaseReference ref;
 
@@ -102,7 +102,6 @@ public class ItemDetail extends AppCompatActivity {
         txt1 = (TextView)findViewById(R.id.nameText3);
         shapeableImageView = (ShapeableImageView)findViewById(R.id.img3);
         btn = (Button)findViewById(R.id.btnDelete3);
-        back = (Button)findViewById(R.id.back_btn);
 
         //getProductDetails(productID);
 
@@ -138,13 +137,13 @@ public class ItemDetail extends AppCompatActivity {
                       imgUrl = itemimage;
 
                       //Navigation to main
-                      btn.setOnClickListener(new View.OnClickListener() {
-                          @Override
-                          public void onClick(View v) {
-                              Intent int1 = new Intent(ItemDetail.this,DisplayCategory.class);
-                              startActivity(int1);
-                          }
-                      });
+//                      btn.setOnClickListener(new View.OnClickListener() {
+//                          @Override
+//                          public void onClick(View v) {
+//                              Intent int1 = new Intent(ItemDetail.this,DisplayCategory.class);
+//                              startActivity(int1);
+//                          }
+//                      });
                   }
 
 
@@ -156,14 +155,6 @@ public class ItemDetail extends AppCompatActivity {
             }
         });
 
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ItemDetail.this,DisplayItemsUser.class);
-                startActivity(intent);
-            }
-        });
     }
 
 
@@ -210,7 +201,14 @@ public class ItemDetail extends AppCompatActivity {
     }
 
 
-
+    //to  stop app get close when pressing back key
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent int1 = new Intent(ItemDetail.this, DisplayItemsUser.class);
+        startActivity(int1);
     }
 
-}
+
+
+    }

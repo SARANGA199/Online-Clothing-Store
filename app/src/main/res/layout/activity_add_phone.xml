@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="@color/white"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:background="@drawable/textbdr"
                 android:hint="Item Name">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -108,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="@color/white"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:background="@drawable/textbdr"
                 android:hint="Item Price">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -147,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="@color/white"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:background="@drawable/textbdr"
                 android:hint="Description">
 
                 <com.google.android.material.textfield.TextInputEditText
