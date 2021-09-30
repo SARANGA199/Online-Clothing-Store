@@ -26,6 +26,10 @@
         android:theme="@style/Theme.OnlineClothingStore"
         tools:replace="android:theme">
 
+
+<!--         <activity android:name=".item_and_category_management.ProductDetailsActivity"/> -->
+
+
         <activity android:name=".user_and_payment_management.CardDetails"></activity>
         <activity android:name=".cart_and_order_management.ConfirmFinalOrderActivity"></activity>
         <activity android:name=".cart_and_order_management.test" />
@@ -55,6 +59,7 @@
             android:exported="true" />
         <activity
             android:name=".item_and_category_management.DisplayCategory"
+
             android:exported="true" />
         <activity
             android:name=".item_and_category_management.DisplayCategoryUser"
@@ -68,13 +73,25 @@
         <activity
             android:name=".request_and_review_management.ListAdapter"
             android:exported="true" />
-        <activity android:name=".user_and_payment_management.EditProfile" />
+        <activity android:name=".user_and_payment_management.EditProfile"
+
+
+            android:exported="true"/>
+
+
+
+        android:theme="@style/Theme.OnlineClothingStore">
+        <activity android:name=".user_and_payment_management.EditProfile"></activity>
         <activity android:name=".user_and_payment_management.Addedcards" />
         <activity android:name=".user_and_payment_management.cardform" />
         <activity android:name=".user_and_payment_management.UserProfile" />
         <activity android:name=".user_and_payment_management.Forgotpassword" />
         <activity android:name=".user_and_payment_management.Register" />
         <activity android:name=".request_and_review_management.Request" />
+
+        <activity android:name=".MainActivity">
+
+
 
         <activity
             android:name=".item_and_category_management.SplashScreen"
@@ -101,6 +118,14 @@
         <activity
             android:name=".item_and_category_management.AddCategory"
             android:exported="true" />
+
+
+<!--         <activity android:name=".user_and_payment_management.User" />
+        <activity android:name=".request_and_review_management.Request" />
+        <activity android:name=".cart_and_order_management.Cart" />
+        <activity android:name=".MainActivity" /> -->
+
+
 
         <meta-data
             android:name="preloaded_fonts"
