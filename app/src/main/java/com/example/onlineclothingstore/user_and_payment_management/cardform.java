@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.onlineclothingstore.MainActivity;
 import com.example.onlineclothingstore.R;
+import com.example.onlineclothingstore.item_and_category_management.AddCategory;
+import com.example.onlineclothingstore.item_and_category_management.DisplayCategory;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -52,6 +56,10 @@ public class cardform extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_cardform);
 
         editTextCardName = findViewById(R.id.cardname);
@@ -180,5 +188,13 @@ public class cardform extends AppCompatActivity {
 //        return valid;
 //    }
 //    ///////
+
+    //to  stop app get close when pressing back key
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent int1 = new Intent(cardform.this, Addedcards.class);
+        startActivity(int1);
+    }
 
 }

@@ -9,10 +9,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.SearchView;
 
 import com.example.onlineclothingstore.R;
+import com.example.onlineclothingstore.item_and_category_management.DisplayItemsUser;
+import com.example.onlineclothingstore.item_and_category_management.ItemDetail;
 import com.example.onlineclothingstore.user_and_payment_management.Cards;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,6 +32,10 @@ public class Addedcards extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_addedcards);
 
         recyclerView = (RecyclerView) findViewById(R.id.cardlist);
@@ -61,6 +69,14 @@ public class Addedcards extends AppCompatActivity{
     protected void onStop() {
         super.onStop();
         cardAdapter.stopListening();
+    }
+
+    //to  stop app get close when pressing back key
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent int1 = new Intent(Addedcards.this, DisplayItemsUser.class);
+        startActivity(int1);
     }
 
 }

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="12dp"
+    android:layout_margin="20dp"
+    android:elevation="12dp"
+    tools:context=".item_and_category_management.ItemDetail"
+    android:padding="-5dp"
+    app:cardUseCompatPadding="true">
+
+
+
+    <RelativeLayout
+        android:layout_width="360dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="450dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="30dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="25dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img3"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginLeft="0dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@mipmap/ic_launcher"
+                    app:strokeColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/nameText3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Item NAME"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+
+
+                <TextView
+                    android:id="@+id/price3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="PRICE"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Discount Rs:"
+                        android:textColor="@color/black"
+                        android:id="@+id/new1"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/discountPrice3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="-160dp"
+                        android:layout_toRightOf="@id/new1"
+                        android:paddingBottom="5dp"
+                        android:text="Price"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+
+
+
+                </RelativeLayout>
+
+
+<!--                <TextView-->
+<!--                    android:id="@+id/descri"-->
+<!--                    android:layout_width="240dp"-->
+
+<!--                <Button-->
+<!--                    android:layout_width="120dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="add to cart"/>-->
+
+                <TextView
+                    android:id="@+id/descri"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                   android:layout_marginLeft="25dp"
+                    android:layout_toRightOf="@id/new1"
+                    android:paddingBottom="5dp"
+                    android:text="Description"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                    android:id="@+id/number_btn"
+                    android:layout_width="171dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginLeft="120dp"
+                    android:elevation="3dp"
+                    app:finalNumber="10"
+                    app:initialNumber="1"
+                    app:textSize="10dp">
+
+                </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+
+
+                <Button
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:text="ADD To CART"
+
+                    android:textAllCaps="false"
+                    android:layout_marginLeft="85dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/orange"
+                    android:id="@+id/btnDelete3"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+<!--    </RelativeLayout>-->
+
+
+</ScrollView>
+
+
+

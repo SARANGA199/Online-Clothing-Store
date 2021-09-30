@@ -3,15 +3,21 @@ package com.example.onlineclothingstore.user_and_payment_management;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.onlineclothingstore.MainActivity;
 import com.example.onlineclothingstore.R;
+import com.example.onlineclothingstore.request_and_review_management.FirstActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -25,16 +31,25 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
 
     private FirebaseAuth mAuth;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
 
         registerbtn = (Button) findViewById(R.id.registerbtn);
         registerbtn.setOnClickListener(this);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Please Wait");
+        progressDialog.setCanceledOnTouchOutside(false);
 
         editTextFullname = (EditText) findViewById(R.id.name);
         editTextEmail = (EditText) findViewById(R.id.email);
@@ -58,7 +73,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         String phone = editTextPhone.getText().toString().trim();
         String address  = editTextAddress.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
-        String isUser = "1";
+        int isUser = 1;
 
         if(name.isEmpty()){
             editTextFullname.setError("Full name is required");
@@ -102,6 +117,10 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
             return;
         }
 
+        //show
+        progressDialog.setMessage("Registering...");
+        progressDialog.show();
+
         mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -116,9 +135,13 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                                 public void onComplete(@NonNull Task<Void> task) {
 
                                     if(task.isSuccessful()){
+                                        progressDialog.dismiss();
                                         Toast.makeText(Register.this,"User has been registered successfully",Toast.LENGTH_LONG).show();
+                                        Intent int1 =new Intent(Register.this, MainActivity.class);
+                                        startActivity(int1);
                                     }
                                     else{
+                                        progressDialog.dismiss();
                                         Toast.makeText(Register.this, "Failed to register",Toast.LENGTH_LONG).show();
                                     }
                                 }

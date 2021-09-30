@@ -2,44 +2,34 @@ package com.example.onlineclothingstore.item_and_category_management;
 
 public class ItemModel {
 
-    String ItemBrand;
-    String ItemName;
-    String ItemPrice;
-    String image;
+    String idescription,idiscountPrice,image,iprice,iproduct,itemName;
 
     public ItemModel() {
     }
 
-    public ItemModel(String itemName, String itemPrice, String itemBrand, String image) {
-        this.ItemBrand = itemBrand;
-        this.ItemName = itemName;
-        this.ItemPrice = itemPrice;
+    public ItemModel(String idescription, String idiscountPrice, String image, String iprice, String iproduct, String itemName) {
+        this.idescription = idescription;
+        this.idiscountPrice = idiscountPrice;
         this.image = image;
+        this.iprice = iprice;
+        this.iproduct = iproduct;
+        this.itemName = itemName;
     }
 
-
-    public String getItemName() {
-        return ItemName;
+    public String getIdescription() {
+        return idescription;
     }
 
-    public void setItemName(String itemName) {
-        ItemName = itemName;
+    public void setIdescription(String idescription) {
+        this.idescription = idescription;
     }
 
-    public String getItemPrice() {
-        return ItemPrice;
+    public String getIdiscountPrice() {
+        return idiscountPrice;
     }
 
-    public void setItemPrice(String itemPrice) {
-        ItemPrice = itemPrice;
-    }
-
-    public String getItemBrand() {
-        return ItemBrand;
-    }
-
-    public void setItemBrand(String itemBrand) {
-        ItemBrand = itemBrand;
+    public void setIdiscountPrice(String idiscountPrice) {
+        this.idiscountPrice = idiscountPrice;
     }
 
     public String getImage() {
@@ -48,5 +38,29 @@ public class ItemModel {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getIprice() {
+        return iprice;
+    }
+
+    public void setIprice(String iprice) {
+        this.iprice = iprice;
+    }
+
+    public String getIproduct() {
+        return iproduct;
+    }
+
+    public void setIproduct(String iproduct) {
+        this.iproduct = iproduct;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 }

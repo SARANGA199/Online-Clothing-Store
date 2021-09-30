@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="@color/white"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:background="@drawable/textbdr"
                 android:hint="Category Name">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="@color/white"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:background="@drawable/textbdr"
                 android:hint="Description">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -106,7 +106,7 @@
 
             <Button
                 android:id="@+id/CAT2"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="220dp"
                 android:layout_marginTop="50dp"
