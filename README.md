@@ -1,8 +1,16 @@
-# Mobile Application Development - Online Clothing Store
+# 👗 Classic Curves: Online Clothing Store
 
-## Y2S2 Group Project (Android Application)
+## 📌 Overview
+**Classic Curves** is an Android application developed as a Year 2 Semester 2 group project. The app enables customers to effortlessly discover clothing products, check availability, and view prices through an online store interface.
 
-Brief Description of Project - “Classic Curves” is an android application that allows customers to easily discover clothing products they are looking to buy, check the availability and prices through the online store.
+## ✨ Features
+- **🛍️ Product Catalog:** Browse a wide range of clothing items with detailed descriptions and images.
+- **🔍 Search Functionality:** Easily find specific products using keywords or categories.
+- **📦 Inventory Management:** Check real-time availability of products.
+- **💳 Secure Payments:** Integrated payment gateway for seamless transactions.
+- **👤 User Profiles:** Manage personal information, order history, and preferences.
 
-
-Technologies used - java,firebase
+## 🛠️ Tech Stack
+- **Language:** Java
+- **Database:** Firebase
+- **Development Environment:** Android Studio
