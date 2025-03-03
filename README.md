@@ -1,7 +1,7 @@
 # 👗 Classic Curves: Online Clothing Store
 
 ## 📌 Overview
-**Classic Curves** is an Android application developed as a Year 2 Semester 2 group project. The app enables customers to effortlessly discover clothing products, check availability, and view prices through an online store interface.
+**Classic Curves** is an Android application . The app enables customers to effortlessly discover clothing products, check availability, and view prices through an online store interface.
 
 ## ✨ Features
 - **🛍️ Product Catalog:** Browse a wide range of clothing items with detailed descriptions and images.
